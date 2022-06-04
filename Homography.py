@@ -67,7 +67,8 @@ for i in range(4):
 
 H = nullspace(A).reshape(3,3)
 
-#print(H)
+print("right + head")
+print(normalization(H.dot(v[1])))
 
 # 已经求出了H矩阵
 # 下面只需要进行一下后向变换即可
@@ -87,27 +88,27 @@ for i in range(4):
     if v[i][1] < min_y:
         min_y = v[i][1]
 
-line12 = getline_2p(u[0], u[1])
-line23 = getline_2p(u[1], u[2])
-line34 = getline_2p(u[2], u[3])
-line41 = getline_2p(u[3], u[1])
+line12 = getline_2p(v[0], v[1])
+line13 = getline_2p(v[0], v[2])
+line34 = getline_2p(v[2], v[3])
+line42 = getline_2p(v[3], v[1])
 
 for i in range(int(min_x), int(max_x)):
     for j in range(int(min_y), int(max_y)):
         p = np.array([i, j, 1])
-        if(p.dot(line12.T) * u[2].dot(line12.T) > 0):
+        if(p.dot(line12.T) * v[2].dot(line12.T) > 0):
             pass
         else:
             continue
-        if(p.dot(line23.T) * u[0].dot(line23.T) > 0):
+        if(p.dot(line13.T) * v[1].dot(line13.T) > 0):
             pass
         else:
             continue
-        if(p.dot(line41.T) * u[2].dot(line41.T) > 0):
+        if(p.dot(line42.T) * v[0].dot(line42.T) > 0):
             pass
         else:
             continue
-        if(p.dot(line34.T) * u[0].dot(line34.T) > 0):
+        if(p.dot(line34.T) * v[0].dot(line34.T) > 0):
             pass
         else:
             continue
@@ -122,7 +123,7 @@ im_liv = array(Image.open('liv.jpg'))
 imshow(im_liv)
 error = 0
 right = 0
-'''
+
 for i in p_list:
     p = normalization(H.dot(i.T))
     p[0] = int(p[0])
@@ -133,6 +134,7 @@ for i in p_list:
     except:
         error += 1
         pass
+
 '''
 for i in range(int(min_x), int(max_x)):
     for j in range(int(min_y), int(max_y)):
@@ -142,6 +144,8 @@ for i in range(int(min_x), int(max_x)):
             im_zhu[j][i] = im_liv[int(p[1])][int(p[0])]
         except:
             pass
+'''
+
 
 
 print(right)
