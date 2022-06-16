@@ -35,5 +35,7 @@ R1 = u.dot(W).dot(v.T)
 if np.linalg.det(R1) <0:
     t1 = -t1
     R1 = -R1
+print("F:" + str(F))
 print("t1:"+str(t1))
 print("R1:"+str(R1))
+

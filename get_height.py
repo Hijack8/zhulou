@@ -61,9 +61,7 @@ print(p1)
 print(p2)
 line12 = getline_2p(p1, p2)
 line1122 = getline_2p(p11, p22)
-
 die1 = getp_2l(line12, line1122)
-
 line34 = getline_2p(p3, p4)
 line3344 = getline_2p(p33, p44)
 
@@ -92,7 +90,10 @@ head_on_building = getp_2l(building, head_line)
 building_down = D
 
 ratio = (get_distance(building_top, building_down) / get_distance(head_on_building, building_down))   *    (get_distance(sky, head_on_building) / get_distance(sky, building_top))
-
+'''
+BD / CD 
+AB / AC
+'''
 Hr = ratio * 1.85
 
 print("测量出来主楼高度为：")

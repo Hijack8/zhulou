@@ -30,6 +30,9 @@ def calculate_location(point1=point1,point2=point2):
 coordinates_location = calculate_location()
 
 print(coordinates_location)
+for i in range(coordinates_location.shape[1]):
+        print("p" + str(i + 1) + " " + str(coordinates_location[0][i]) + "," + str(coordinates_location[1][i]) + "," + str(coordinates_location[2][i]))
+
 location_dict = scipy.io.loadmat(matlab_file)
 location_dict['x'] = coordinates_location[0]
 location_dict['y'] = coordinates_location[1]
